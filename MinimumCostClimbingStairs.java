@@ -1,0 +1,13 @@
+
+public class MinimumCostClimbingStairs {
+    public static void main(String[] agrs) {
+        int[] cost = { 10, 15, 20, 70, 7, 19 };
+        int[] dp = new int[cost.length];
+        dp[cost.length - 1] = cost[cost.length - 1];
+        dp[cost.length - 2] = cost[cost.length - 2];
+        for (int i = cost.length - 3; i >= 0; i--) {
+            dp[i] = cost[i] + Math.min(dp[i + 1], dp[i + 2]);
+        }
+        System.out.println(Math.min(dp[0], dp[1]));
+    }
+}
